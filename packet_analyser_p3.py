@@ -43,7 +43,5 @@ def suspProto(pkt):
 
 def ipBlacklist(pkt):
     """IP Blacklist – Throughout the SSSGO there are known Ip address that are infamous for sending malicious software, spam attacks or even denial of series attacks. These packets should be discarded immediately. Write a function to check if the source IP address of a packet matches any of the IP addresses in the IP backlist."""
-    return getPacketSrc(pkt) in IpBlackList
-
-
+    return getPacketSrc(pkt) in IpBlackList or getPacketDst(pkt) in IpBlackList
 
