@@ -15,7 +15,7 @@ Member 2: 620146318
 # Last Modified Date: 24.11.2022
 # Last Modified By  : Camarly Thomas 
 
-from packet_analyser_p1.py import * 
+from packet_analyser_p1 import * 
 
 
 def getLength(pkt):
