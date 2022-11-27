@@ -31,7 +31,7 @@ from packet_analyser_p4 import *
 from packet_analyser_p5 import *
 from packet_analyser_p6 import *
 from packet_analyser_p7 import *
-
+from packet_analyser_p8 import *
 
 
 def makePacket(srcIP, dstIP, length, prt, sp, dp, sqn, pld):
