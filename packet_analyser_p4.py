@@ -99,11 +99,11 @@ def addPacket(ScoreList, pkt):
     ScoreList[1].append((pkt,calScore(pkt)))
  
 def getSuspPkts(ScoreList):
-    return [packet[0] for packet in ScoreList[1] if packet[1] > 5.00]
+    return list(filter(lambda x: x[0] > 5.00, ScoreList[1]))
  
  
 def getRegulPkts(ScoreList):
-    return [packet[0] for packet in ScoreList[1] if packet[1] <= 5.00]
+    return list(filter(lambda x: x[0] <= 5.00, ScoreList[1]))
  
 def isScore(ScoreList):
     return ScoreList[0] == 'SCORE' and type(ScoreList) == list and len(ScoreList) == 2
