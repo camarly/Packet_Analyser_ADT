@@ -1,36 +1,17 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-# All Rights Reserved - No usage allowed
-# File              : packet_analyser_p8.py
-# Author            : Camarly Thomas 
-# Author            : Michael Leighton
-
-"""
-Group Information: 
-Camarly Thomas : 620158933 
-Michael Leighton : 620146318
-"""
-
-# Date              : 25.11.2022
-# Last Modified Date: 25.11.2022
-# Last Modified By  : Camarly Thomas 
 
 
- #!/bin/python3
 
+
+
+
+
+#!/bin/python3
+ 
 import math
 import os
 import random
 import re
 import sys
-
-from packet_analyser_p1 import * 
-from packet_analyser_p2 import * 
-from packet_analyser_p3 import *
-from packet_analyser_p4 import *
-from packet_analyser_p5 import *
-from packet_analyser_p6 import *
-from packet_analyser_p7 import *
  
 #
 # Please Paste all Fuctions from Part 1,2,3,4,5,6 & 7
@@ -118,10 +99,11 @@ def addPacket(ScoreList, pkt):
     ScoreList[1].append((pkt,calScore(pkt)))
  
 def getSuspPkts(ScoreList):
-    return list(filter(lambda x: x[0] > 5.00, ScoreList[1]))
+    return [packet[0] for packet in ScoreList[1] if packet[1] > 5.00]
+ 
  
 def getRegulPkts(ScoreList):
-    return list(filter(lambda x: x[0] <= 5.00, ScoreList[1]))
+    return [packet[0] for packet in ScoreList[1] if packet[1] <= 5.00]
  
 def isScore(ScoreList):
     return ScoreList[0] == 'SCORE' and type(ScoreList) == list and len(ScoreList) == 2
@@ -192,7 +174,7 @@ def sortPackets(scoreList,stack,queue):
 # Complete the function below.
 #
  
-def genPacketList(pkd_list):
+def foo(pkd_list):
     packets = []
     for packet in pkd_list:
         packets.append(makePacket(packet[0],packet[1],packet[2],packet[3],packet[4],packet[5],packet[6],packet[7]))
@@ -200,7 +182,7 @@ def genPacketList(pkd_list):
  
 def analysePackets(packet_List):
     scores = []
-    packets = genPacketList(packet_List)
+    packets = foo(packet_List)
     packet_Scores = makeScore(packets) 
     stack = makePacketStack()
     queue = makePacketQueue()
@@ -232,7 +214,8 @@ if __name__ == '__main__':
               ("444.221.232.94","50.168.160.19",1003,"TCP",4657,4875,1962433,428),\
               ("555.221.232.94","50.168.160.19",236,"TCP",7753,5724,2062432,48)]
     #needed for flowAverage calculation
-    pkt_list = genPacketList(packet_List)
+    pkt_list = foo(packet_List)
     fptr.write('Forward Packets => ' + str(analysePackets(packet_List)) + '\n')
  
     fptr.close()
+
