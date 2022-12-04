@@ -259,8 +259,9 @@ if __name__ == '__main__':
     packet_List = genPacketList(packet_List)
     
     ProtocolList = ["HTTPS","SMTP","UDP","TCP","DHCP","IRC"]
-    IpBlackList =["213.217.236.184","149.88.83.47","223.70.250.146","169.51.6.136","229.223.169.245"]
+    IpBlackList = []
  
     fptr.write('Forward Packets => ' + str(analysePackets(packet_List)) + '\n')
  
     fptr.close()
+    
